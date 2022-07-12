@@ -10,9 +10,9 @@ https://chrome.google.com/webstore/detail/javascript-injector/ejnccfcackblkelbaf
 var firebaseModule = document.createElement('script');
 firebaseModule.type = 'module';
 
-firebaseModule.src = 'https://caed.agenciabossanova.com/scripts/firebase.js';
+firebaseModule.src = 'https://caed.agenciabossanova.com/firebase.js';
 var script = document.createElement('script');
-script.src = "https://caed.agenciabossanova.com/scripts/agente-chat.js";
+script.src = "https://caed.agenciabossanova.com/agente-chat.js";
             
 document.head.appendChild(script)
 document.head.appendChild(firebaseModule)
@@ -30,9 +30,9 @@ https://chrome.google.com/webstore/detail/javascript-injector/ejnccfcackblkelbaf
 var firebaseModule = document.createElement('script');
 firebaseModule.type = 'module';
 
-firebaseModule.src = 'https://caed.agenciabossanova.com/scripts/firebase-admin.js';
+firebaseModule.src = 'https://caed.agenciabossanova.com/firebase-admin.js';
 var script = document.createElement('script');
-script.src = "https://caed.agenciabossanova.com/scripts/admin-chat.js";
+script.src = "https://caed.agenciabossanova.com/admin-chat.js";
             
 document.head.appendChild(script)
 document.head.appendChild(firebaseModule)
