@@ -12,13 +12,28 @@ function whileConditionNotMet() {
 		setTimeout(getButton, 1000);
 		return false;
 	}
-	const buttonChildren = ButtonDelete[0].children;
+
+	for (let buttonDelete of ButtonDelete) {
+		console.log(buttonDelete)
+		const buttonChildren = buttonDelete.children;
 	
-	console.log(buttonChildren);
-	if(buttonChildren[2].childNodes[0].className.toString().includes("delete-conversation-2") || buttonChildren[2].childNodes[0].className.toString().includes("delete-conversation-1")) {
-		buttonChildren[2].style.display = "none";
-		console.log("botao deletado", buttonChildren[2]);
+
+		for (let item of buttonChildren) {
+			for (let childNodes of item.childNodes) {
+				if(childNodes.className.toString().includes("delete-conversation-2") || childNodes.className.toString().includes("delete-conversation-1") || childNodes.className.toString().includes("assign-to-agent") ) {
+					item.style.display = "none";
+				}
+				console.log(childNodes.className.toString())
+			}
+		}
+
 	}
+
+	// if(buttonChildren[2].childNodes[0].className.toString().includes("delete-conversation-2") || buttonChildren[2].childNodes[0].className.toString().includes("delete-conversation-1")) {
+	// 	buttonChildren[2]= "none";
+	// 	console.log("botao deletado", buttonChildren[2]);
+	// }
+	// buttonChildren[3].style.display = "none";
 	return true;
 }
 whileConditionNotMet();
