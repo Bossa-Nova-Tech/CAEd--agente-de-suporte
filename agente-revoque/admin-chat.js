@@ -41,6 +41,8 @@ function pegaEmailsTable() {
     }, 5000);
     return;
   }
+  const first = document.getElementsByClassName("first-last-pagination")[0];
+  if(window.emails.length <= 0) return ;
   for (let childrenTable of table.children) {
     for (let tbody of childrenTable.children) {
       for (let td of tbody.children) {
@@ -49,10 +51,16 @@ function pegaEmailsTable() {
             console.log("email ->", td.innerHTML, window.emails);
             for (let email of window.emails) {
               if (td.innerHTML.toString() == email) {
-                console.log("encontrou", email, td.innerHTML.toString());
-                let indexArr = window.emails.findIndex((email) => email == td.innerHTML.toString());
-                window.emails.slice(indexArr, 1);
+                window.emails = window.emails.filter((email) => email != td.innerHTML.toString());
                 tbody.children[4].children[2].click();
+                // if(tbody.children[4].children[2].dataset.originalTitle === "Restore Access" ) {
+                
+                // } else if(tbody.children[4].children[2].dataset.originalTitle === "Revoke Access") {
+                //   let indexArr = window.emails.findIndex((email) => email == td.innerHTML.toString());
+                //   window.emails.slice(indexArr, 1);
+                //   tbody.children[4].children[2].click();
+                // }
+                first.click();
                 return;
               }
             }

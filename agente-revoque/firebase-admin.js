@@ -23,13 +23,15 @@ const starCountRef = ref(database, "agente");
 onValue(starCountRef, (snapshot) => {
   const data = snapshot.val();
   for (let usuario of Object.keys(data)) {
-    console.log(data[usuario]);
     let user = data[usuario];
-    console.log(user)
     if (user.validaAtualizacao != null && user.validaAtualizacao != undefined && user.validaAtualizacao == false) {
       console.log("atualizando", user.email);
       window.emails.push(user.email);
-      set(starCountRef, usuario, { validaAtualizacao: true });
+      set(ref(database,"agente/" + user.id), {
+        ...user,
+        validaAtualizacao: true,
+      });
+      console.log(user.validaAtualizacao )
       pegaEmailsTable(user.email);
     }
   }
